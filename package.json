@@ -1,13 +1,18 @@
 {
   "name": "@conversu/commons",
-  "version": "1.0.5",
+  "version": "2.0.0",
   "description": "Commons tool set for Conversu applications",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf dist && tsup",
     "types": "tsc --noEmit"
   },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/conversu/commons.git"
