@@ -1,4 +1,4 @@
-function safetyParse<T extends object>(obj?: any | null): T | null {
+export function safetyParse<T extends object>(obj?: any | null): T | null {
 	if (!obj) {
 		return null;
 	}
@@ -18,7 +18,7 @@ function safetyParse<T extends object>(obj?: any | null): T | null {
 	return null;
 }
 
-function safetyStringify(obj: object | string | null): string | null {
+export function safetyStringify(obj: object | string | null): string | null {
 	if (!obj) {
 		return null;
 	}
@@ -38,7 +38,7 @@ function safetyStringify(obj: object | string | null): string | null {
 	return null;
 }
 
-function safetyUpdate(
+export function safetyUpdate(
 	obj: object | string | null,
 	data?: object | null,
 ): object | string | null {
@@ -65,7 +65,7 @@ function safetyUpdate(
 	return current;
 }
 
-function safetyRemove(obj: object | string | null, key: string) {
+export function safetyRemove(obj: object | string | null, key: string) {
 	let metadata = safetyParse(obj);
 	if (!metadata) {
 		return metadata;
@@ -76,9 +76,3 @@ function safetyRemove(obj: object | string | null, key: string) {
 	return metadata;
 }
 
-export const SAFETY_JSON = {
-	parse: safetyParse,
-	stringify: safetyStringify,
-	update: safetyUpdate,
-	remove: safetyRemove
-};

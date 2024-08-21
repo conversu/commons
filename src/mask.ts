@@ -1,8 +1,9 @@
-import { formatPhone } from "./format";
+
+import { Phone as NormalizePhone } from "./format";
 import { normalizeDocument } from "./normalize";
 
 
-export function getDocumentMask(value: string) {
+export function Document(value: string) {
 
     let mask = '999.999.999-999';
     const normalized = normalizeDocument(value);
@@ -21,9 +22,9 @@ export function getDocumentMask(value: string) {
 }
 
 
-export function maskPhone(value: string) {
+export function Phone(value: string) {
 
-    let phone = formatPhone(value);
+    let phone = NormalizePhone(value);
 
     if (phone) {
         phone = phone.includes('-')
@@ -40,7 +41,7 @@ export function maskPhone(value: string) {
     return value;
 }
 
-export function maskCpf(value: string) {
+export function Cpf(value: string) {
     if (!!value && value.length === 11) {
         return `${value.slice(0, 3)}.***.***-${value.slice(value.length - 2, value.length)}`;
     }
@@ -48,7 +49,7 @@ export function maskCpf(value: string) {
     return value;
 }
 
-export function maskCnpj(value: string) {
+export function Cnpj(value: string) {
     if (!!value && value.length === 14) {
         return `${value.slice(0, 2)}.***.**${value.slice(7, 8)}/${value.slice(8, 12)}-${value.slice(value.length - 2, value.length)}`;
     }
@@ -56,7 +57,7 @@ export function maskCnpj(value: string) {
     return value;
 }
 
-export function maskCep(value: string) {
+export function Cep(value: string) {
     if (!!value && value.length === 8) {
         return `${value.slice(0, 2)}***-${value.slice(value.length - 3, value.length)}`;
     }

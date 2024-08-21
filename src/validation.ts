@@ -1,7 +1,7 @@
 import { cpf as cpfValidator, cnpj as cnpjValidator, } from 'cpf-cnpj-validator';
 
 
-export function validateCpf(cpf: string | undefined): boolean {
+export function Cpf(cpf: string | undefined): boolean {
 
   if (!!cpf) {
 
@@ -11,7 +11,7 @@ export function validateCpf(cpf: string | undefined): boolean {
   return false;
 }
 
-export function validateCnpj(cnpj: string | undefined): boolean {
+export function Cnpj(cnpj: string | undefined): boolean {
 
   if (!!cnpj) {
 
@@ -42,7 +42,7 @@ export function formatDocument(document?: string | null): string {
 }
 
 
-export function validateEndpointProtocol(url: string): boolean {
+export function EndpointProtocol(url: string): boolean {
   const parsedUrl = new URL(url);
   if (parsedUrl.protocol !== 'https:') {
     return false; // Reject if protocol is not HTTPS
@@ -50,7 +50,7 @@ export function validateEndpointProtocol(url: string): boolean {
   return true;
 }
 
-export async function validateEndpoint(url: string, method: 'POST' | 'PUT'): Promise<boolean> {
+export async function Endpoint(url: string, method: 'POST' | 'PUT'): Promise<boolean> {
   if (!url) {
     return true; // Accept empty value without validation
   }
@@ -76,7 +76,7 @@ export async function validateEndpoint(url: string, method: 'POST' | 'PUT'): Pro
 }
 
 
-export function validatePhone(phoneNumber: string): boolean {
+export function Phone(phoneNumber: string): boolean {
   // Remove any non-digit characters from the phone number
   const cleanedPhoneNumber = phoneNumber.replace(/\D/g, '');
 

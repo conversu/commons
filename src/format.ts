@@ -1,4 +1,4 @@
-import { normalizeDocument } from "./normalize";
+import { normalizeDocument, normalizeTextNumber } from "./normalize";
 
 /**
  * Rounds a number to a specified number of decimal places.
@@ -20,7 +20,7 @@ export function roundToDecimals(num: number, decimals: number) {
 
 
 
-export function formatFileSize(size: number | null, unit: 'Mb' | 'Kb' | 'Gb', decimals?: number) {
+export function fileSize(size: number | null, unit: 'Mb' | 'Kb' | 'Gb', decimals?: number) {
     if (!size || size === 0) {
 
         return `0 ${unit}`;
@@ -47,7 +47,7 @@ export function formatFileSize(size: number | null, unit: 'Mb' | 'Kb' | 'Gb', de
     return `${roundToDecimals(size / divisor, decimals ?? 2)} ${unit}`.replace('.', ',');
 }
 
-export function formatCnpj(value: string) {
+export function Cnpj(value: string) {
 
     const normalized = normalizeDocument(value);
     if (!!normalized && normalized.length === 14) {
@@ -58,7 +58,7 @@ export function formatCnpj(value: string) {
 }
 
 
-export function formatCpf(value: string) {
+export function Cpf(value: string) {
 
     const normalized = normalizeDocument(value);
     if (!!normalized && normalized.length === 11) {
@@ -69,24 +69,24 @@ export function formatCpf(value: string) {
 }
 
 
-export function formatDocument(value: string) {
+export function Document(value: string) {
 
     let result = value.replace(/[.\-/]/g, "");
 
     if (result.length === 11) {
 
-        return formatCpf(result);
+        return Cpf(result);
     }
 
     if (result.length === 14) {
 
-        return formatCnpj(result);
+        return Cnpj(result);
     }
 
     return result;
 }
 
-export function formatPhone(value: string): string | null {
+export function Phone(value: string): string | null {
 
     let normalized = normalizeDocument(value)
 
@@ -103,9 +103,9 @@ export function formatPhone(value: string): string | null {
     return `(${normalized.slice(0,1)}) ${normalized.slice(1,6)}-${normalized.slice(6)}`
 }
 
-function formatZipCode(value: string): string | null {
+function ZipCode(value: string): string | null {
 
-    let normalized = normalizeDocument(value)
+    let normalized = normalizeTextNumber(value)
 
     if (!normalized) {
 
@@ -115,15 +115,7 @@ function formatZipCode(value: string): string | null {
 }
 
 
-export function formatCep(value: string) {
-    if (!!value && value.length === 8) {
-        return `${value.slice(0, 5)}-${value.slice(value.length - 3, value.length)}`;
-    }
-
-    return value;
-}
-
-export function formatPlate(value: string) {
+export function Plate(value: string) {
     if (value) {
         return `${value.substring(0, 3)}-${value.substring(3, value.length)}`;
     }
@@ -132,10 +124,10 @@ export function formatPlate(value: string) {
 
 
 
-export const formatUtils = {
-    DOCUMENT: formatDocument,
-    CPF: formatCpf,
-    CNPJ: formatCnpj,
-    PHONE: formatPhone,
-    ZIP_CODE: formatZipCode
+export const String = {
+    DOCUMENT: Document,
+    CPF: Cpf,
+    CNPJ: Cnpj,
+    PHONE: Phone,
+    ZIP_CODE: ZipCode
 }
