@@ -1,0 +1,29 @@
+{
+  "name": "@conversu/commons",
+  "version": "1.0.0",
+  "description": "Commons tool set for Conversu applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/conversu/commons.git"
+  },
+  "author": "Pablo Woinarovicz Ramos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/conversu/commons/issues"
+  },
+  "homepage": "https://github.com/conversu/commons#readme",
+  "dependencies": {
+    "cpf-cnpj-validator": "^1.0.3",
+    "crypto-js": "^4.2.0",
+    "typescript": "^5.5.4",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^4.2.2",
+    "tsup": "^8.2.4"
+  }
+}
