@@ -115,6 +115,23 @@ function formatZipCode(value: string): string | null {
 }
 
 
+export function formatCep(value: string) {
+    if (!!value && value.length === 8) {
+        return `${value.slice(0, 5)}-${value.slice(value.length - 3, value.length)}`;
+    }
+
+    return value;
+}
+
+export function formatPlate(value: string) {
+    if (value) {
+        return `${value.substring(0, 3)}-${value.substring(3, value.length)}`;
+    }
+    return value;
+}
+
+
+
 export const formatUtils = {
     DOCUMENT: formatDocument,
     CPF: formatCpf,
