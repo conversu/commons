@@ -1,6 +1,6 @@
 {
   "name": "@conversu/commons",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "Commons tool set for Conversu applications",
   "main": "index.js",
   "scripts": {
