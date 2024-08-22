@@ -17,6 +17,24 @@ npm i @conversu/commons
 yarn add @conversu/commons
 ```
 
+## TESTS
+Run test suite:
+```bash
+npm run test
+```
+
+Run test suite and watch:
+```bash
+npm run test -- --watch
+```
+
+Generate coverage report:
+
+```bash
+npm run test -- --coverage
+```
+
+
 
 ## Modules
 <ul>
