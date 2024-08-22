@@ -10,14 +10,14 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
-    "outDir": "/dist"
+    "outDir": "/dist",
   },
   "include": [
-     "/src"
+     "src/**/*.ts",
+     "tests/**/*.ts"
   ],
   "exclude": [
     "dist/",
-    "**/*.test.ts",
-    "jest.startup.ts"
+    "**/*.test.ts"
   ]
 }

@@ -18,16 +18,14 @@ export function parse<T extends object>(obj?: any | null): T | null {
 	return null;
 }
 
-export function stringify(obj: object | string | null): string | null {
+export function stringify(obj: object | string | null | undefined): string | null {
 	if (!obj) {
 		return null;
 	}
 
 	if (typeof obj === 'string') {
 		return obj;
-	}
-
-	if (typeof obj === 'object') {
+	} else {
 		try {
 			return JSON.stringify(obj);
 		} catch (err) {
@@ -35,7 +33,6 @@ export function stringify(obj: object | string | null): string | null {
 		}
 	}
 
-	return null;
 }
 
 export function update(
@@ -65,14 +62,15 @@ export function update(
 	return current;
 }
 
-export function removeKey(obj: object | string | null, key: string) {
+export function removeKey(obj: object | string | null | undefined, keyToRemove: string) {
 	let metadata = parse(obj);
 	if (!metadata) {
 		return metadata;
 	}
-	Object.keys(metadata).filter(key => key !== 'waitingFor').forEach(key => {
-		metadata[key] = metadata[key];
+	const newObj = {};
+	Object.keys(metadata).filter(key => key !== keyToRemove).forEach(key => {
+		newObj[key] = metadata[key];
 	})
-	return metadata;
+	return newObj;
 }
 

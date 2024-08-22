@@ -1,11 +1,12 @@
 import { cpf as cpfValidator, cnpj as cnpjValidator, } from 'cpf-cnpj-validator';
+import { normalizeTextNumber } from './normalize';
 
 
-export function Cpf(cpf: string | undefined): boolean {
+export function Cpf(cpf: string | undefined | null): boolean {
 
   if (!!cpf) {
 
-    const cpfNumber = cpf?.replace('.', '').replace('-', '');
+    const cpfNumber = normalizeTextNumber(cpf);
     return cpfValidator.isValid(cpfNumber);
   }
   return false;

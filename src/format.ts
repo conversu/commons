@@ -116,7 +116,7 @@ function ZipCode(value: string): string | null {
 
 
 export function Plate(value: string) {
-    if (value) {
+    if (value && value.length === 7) {
         return `${value.substring(0, 3)}-${value.substring(3, value.length)}`;
     }
     return value;

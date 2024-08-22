@@ -1,4 +1,4 @@
-class ApiEndpointBuilder {
+export class ApiEndpointBuilder {
 	private baseUrl: string;
 	private pathTemplate: string;
 	private pathParams: Record<string, string | number | boolean>;

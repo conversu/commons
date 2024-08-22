@@ -3,7 +3,7 @@ import { Phone as NormalizePhone } from "./format";
 import { normalizeDocument } from "./normalize";
 
 
-export function Document(value: string) {
+export function DocumentPattern(value: string) {
 
     let mask = '999.999.999-999';
     const normalized = normalizeDocument(value);
@@ -19,6 +19,18 @@ export function Document(value: string) {
     }
 
     return mask
+}
+
+
+export function Document(value: string) {
+
+    const normalized = normalizeDocument(value);
+
+    if (normalized.length === 11) {
+        return Cpf(normalized);
+    }
+
+    return Cnpj(normalized);
 }
 
 
