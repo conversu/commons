@@ -1,6 +1,6 @@
 {
   "name": "@conversu/commons",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "Commons tool set for Conversu applications",
   "scripts": {
     "test": "jest",
