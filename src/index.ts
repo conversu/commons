@@ -2,21 +2,15 @@ import * as AES from './aes';
 import * as FORMAT from './format';
 import * as SAFETY_JSON from './json';
 import * as MASK from './mask';
-import * as validate from './validation';
-import * as functions from './functions';
-import * as normalize from './normalize';
+import * as VALIDATE from './validation';
 
-import * as api from './api';
-
-
-
+export * from './normalize';
+export * from './api';
+export * from './functions';
 export {
     AES,
     FORMAT,
-    functions,
     SAFETY_JSON,
+    VALIDATE,
     MASK,
-    normalize,
-    validate,
-    api
 }

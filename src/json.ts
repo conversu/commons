@@ -1,4 +1,4 @@
-export function safetyParse<T extends object>(obj?: any | null): T | null {
+export function parse<T extends object>(obj?: any | null): T | null {
 	if (!obj) {
 		return null;
 	}
@@ -18,7 +18,7 @@ export function safetyParse<T extends object>(obj?: any | null): T | null {
 	return null;
 }
 
-export function safetyStringify(obj: object | string | null): string | null {
+export function stringify(obj: object | string | null): string | null {
 	if (!obj) {
 		return null;
 	}
@@ -38,7 +38,7 @@ export function safetyStringify(obj: object | string | null): string | null {
 	return null;
 }
 
-export function safetyUpdate(
+export function update(
 	obj: object | string | null,
 	data?: object | null,
 ): object | string | null {
@@ -65,8 +65,8 @@ export function safetyUpdate(
 	return current;
 }
 
-export function safetyRemove(obj: object | string | null, key: string) {
-	let metadata = safetyParse(obj);
+export function removeKey(obj: object | string | null, key: string) {
+	let metadata = parse(obj);
 	if (!metadata) {
 		return metadata;
 	}
