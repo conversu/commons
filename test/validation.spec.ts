@@ -19,11 +19,6 @@ describe('VALIDATION module', () => {
         it('undefined CPF should return false', () => {
             expect(Cpf(undefined)).toBe(false);
         });
-
-        // Test for Document function
-        it('should format CPF correctly', () => {
-            expect(Document('12345678909')).toBe('123.456.789-09');
-        });
     });
 
     describe('CNPJ', () => {
@@ -48,13 +43,21 @@ describe('VALIDATION module', () => {
     describe('Document', () => {
 
         it('should format CNPJ correctly', () => {
-            expect(Document('12345678000195')).toBe('12.345.678/0001-95');
+            expect(Document('12345678000195')).toBe(true);
         });
 
         it('should return empty string for invalid document length', () => {
-            expect(Document('12345')).toBe('');
+            expect(Document('12345')).toBe(false);
         });
 
+        it('valid CNPJ should return true', () => {
+            expect(Cnpj('59.386.141/0001-37')).toBe(true);  // Replace with a valid CNPJ for your region
+        });
+
+        // Test for Document function
+        it('should should return true', () => {
+            expect(Document('123.456.789-00')).toBe(false);
+        });
     });
 
     describe('Endpoint protocol', () => {

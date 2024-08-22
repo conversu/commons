@@ -3,7 +3,7 @@
   "version": "3.2.0",
   "description": "Commons tool set for Conversu applications",
   "scripts": {
-    "test": "jest --watch",
+    "test": "jest",
     "build": "rm -rf dist && tsup",
     "types": "tsc --noEmit"
   },

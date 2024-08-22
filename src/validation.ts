@@ -22,24 +22,27 @@ export function Cnpj(cnpj: string | undefined): boolean {
   return false;
 }
 
-export function Document(document?: string | null): string {
+export function Document(document: string | undefined | null) : boolean{
 
-  if (!document) {
+  const normalized = normalizeTextNumber(document);
 
-    return '';
+
+  if(!normalized){
+
+    return false
   }
 
-  const cleanDocument = document.replace(/\D/g, '');
+  if(normalized.length === 11){
 
-  if (cleanDocument.length === 11) {
-    // Format as CPF: 999.999.999-46
-    return cleanDocument.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
-  } else if (cleanDocument.length === 14) {
-    // Format as CNPJ: 99.999.999/9999-99
-    return cleanDocument.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
-  } else {
-    return '';
+    return Cpf(normalized);
   }
+
+  if(normalized.length === 14){
+
+    return Cnpj(normalized);
+  }
+
+  return false;
 }
 
 

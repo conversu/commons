@@ -82,7 +82,7 @@ describe('FORMAT module', () => {
   // Test for Phone function
   describe('Phone', () => {
     it('should format a valid phone number correctly', () => {
-      expect(Phone('11987654321')).toBe('(1) 19876-54321');
+      expect(Phone('11987654321')).toBe('(11) 98765-4321');
     });
 
     it('should return null for an invalid phone number', () => {
@@ -112,7 +112,7 @@ describe('FORMAT module', () => {
     });
 
     it('should format phone using String.PHONE', () => {
-      expect(String.PHONE('11987654321')).toBe('(1) 19876-54321');
+      expect(String.PHONE('11987654321')).toBe('(11) 98765-4321');
     });
 
     it('should format document using String.DOCUMENT', () => {

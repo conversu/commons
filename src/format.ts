@@ -100,7 +100,7 @@ export function Phone(value: string): string | null {
         normalized = normalized.slice(2, normalized.length)
     }
 
-    return `(${normalized.slice(0,1)}) ${normalized.slice(1,6)}-${normalized.slice(6)}`
+    return `(${normalized.slice(0,2)}) ${normalized.slice(2,normalized.length - 4)}-${normalized.slice(normalized.length - 4, normalized.length)}`
 }
 
 function ZipCode(value: string): string | null {

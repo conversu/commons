@@ -38,16 +38,12 @@ export function Phone(value: string) {
 
     let phone = NormalizePhone(value);
 
-    if (phone) {
-        phone = phone.includes('-')
-            ? phone
-            : `${phone.slice(0, phone.length - 4)}-${phone.slice(phone.length - 4, phone.length)}`;
-        const [part1, part2] = phone.split('-');
-        let result = part1.slice(0, 12);
-        result += '**-**';
-        result += part2.slice(2, 4);
+    console.log(phone)
 
-        return result;
+    if (phone && phone.includes('-')) {
+        const [part1, part2] = phone.split('-');
+
+        return `${part1.slice(0, 4)} ${'*'.repeat(part1.length - 5)}-${part2}`;
     }
 
     return value;
