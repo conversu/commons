@@ -21,7 +21,7 @@ export function Cnpj(cnpj: string | undefined): boolean {
   return false;
 }
 
-export function formatDocument(document?: string | null): string {
+export function Document(document?: string | null): string {
 
   if (!document) {
 

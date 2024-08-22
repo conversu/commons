@@ -1,4 +1,4 @@
-import CryptoJS from 'crypto-js';
+const CryptoJS = require('crypto-js');
 
 export function encrypt(secret: string, value: string | null): string | null {
     if (value) {
